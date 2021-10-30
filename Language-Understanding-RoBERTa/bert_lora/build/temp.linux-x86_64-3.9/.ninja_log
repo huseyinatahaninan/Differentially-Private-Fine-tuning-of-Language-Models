@@ -1,0 +1,7 @@
+# ninja log v5
+31	1165	1632532518200776371	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fairseq/clib/libbleu/libbleu.o	66bc0b77207e4458
+32	1280	1632532518316772163	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fairseq/clib/libbleu/module.o	926386666c083928
+9	4973	1632532523740575401	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fairseq/data/data_utils_fast.o	4c298c5b2ef8a11b
+9	5238	1632532529532365290	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fairseq/data/token_block_utils_fast.o	eb756b025e3758d3
+31	17268	1632532547103727846	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fairseq/clib/libnat/edit_dist.o	5d70b20f079e0b1c
+19	6096	1632532553731487408	/home/huzhang/azureblob/intrinsicDP/ppml901/dpdl/language/bert/bert_code/build/temp.linux-x86_64-3.9/fastbpe/fastBPE/fastBPE.o	94e48086be1c7eb
