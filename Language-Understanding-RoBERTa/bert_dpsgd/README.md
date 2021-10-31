@@ -10,7 +10,7 @@ pip install --editable . --user
 
 Here is an example command to fine-tune the full model with DPSGD.
 ```
-python run_exp.py --gpu_id 0 --task SST-2 --clip 10. --eps 8 --delta 1e-5 --accountant moments  --batch_size 2000 --lr 1e-3 --epoch 50 --sess dpsgd_debug --to_console
+python run_exp.py --gpu_id 0 --task SST-2 --clip 0.1 --eps 8 --delta 1e-5 --accountant moments  --batch_size 2000 --lr 1e-3 --epoch 10 --sess dpsgd_debug --to_console
 ```
 
 The `--eps` and `--delta` flags specify the privacy parameters. 
