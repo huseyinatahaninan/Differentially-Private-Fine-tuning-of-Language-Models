@@ -10,7 +10,7 @@ pip install --editable . --user
 
 Here is an example command to fine-tune the model with DP-Compactor.
 ```
-python run_exp.py --gpu_id 0 --task SST-2 --k 96 --n 8 --clip 10. --eps 8 --delta 1e-5 --accountant moments --batch_size 2000 --lr 1e-3 --epoch 50 --sess compactor_debug --to_console
+python run_exp.py --gpu_id 0 --task SST-2 --k 96 --n 8 --clip 10. --eps 8 --delta 1e-5 --accountant moments --batch_size 2000 --lr 5e-3 --epoch 50 --sess compactor_debug --to_console
 ```
 
 The `--k` flag specifies the bottleneck dimension. The `--n` flag specifies the number of Kronecker produces.
