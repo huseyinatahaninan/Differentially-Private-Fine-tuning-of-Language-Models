@@ -21,3 +21,7 @@ The `--clip` flag specifies the clipping threshold of pre-example gradients.
 
 See `run_exp.py` for the introduction of all flags.
 
+The following command fine-tunes the RoBERTa.Large model with full-precision on the SST-2 dataset.
+```
+python run_exp.py --gpu_id 1 --task SST-2 --k 16 --eps 8 --delta 1e-5 --clip 2. --accountant moments --batch_size 2000 --lr 1e-3 --epoch 50  --sess lora_bertx_debug --arch roberta.large  --to_console --fp32
+```
