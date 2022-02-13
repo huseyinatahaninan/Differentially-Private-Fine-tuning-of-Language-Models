@@ -41,7 +41,9 @@ In addition to the classic [moments accountant](https://arxiv.org/abs/1607.00133
 
 To install the `prv_accountant` package, go to the folder and run `pip install --editable . --user`.
 
-To enable half-precision (`--fp16` flag), you need a Volta GPU, e.g., Titan V or Tesla V100.
+By default, the experiments are run with half-precison, you need a Volta GPU, e.g., Titan V or Tesla V100, in this setting.
+
+You can also switch to full-precision by adding `--fp32` when running `run_exp.py`.
 
 ## Pre-trained Models and Pre-processed Datasets
 
