@@ -28,6 +28,8 @@ parser.add_argument('--clip', default=10., type=float, help='clipping threshold 
 parser.add_argument('--accountant', default='prv', type=str, choices=['moments', 'prv'], help='privacy accounting method')
 
 
+parser.add_argument('--fp32', action='store_true', help='use full precision or not')
+
 args = parser.parse_args()
 
 assert args.task in ['MNLI', 'QNLI', 'QQP', 'SST-2']
@@ -90,7 +92,10 @@ if('base' in args.arch):
 else:
     args.arch = 'roberta_large'
 
-cmd = 'CUDA_VISIBLE_DEVICES=%d python train.py %s --save-dir %s --fp16  --fp16-init-scale 4 --threshold-loss-scale 1 --fp16-scale-window 128 \
+if(not args.fp32):
+    apdx += ' --fp16  --fp16-init-scale 4 --threshold-loss-scale 1 --fp16-scale-window 128 '
+
+cmd = 'CUDA_VISIBLE_DEVICES=%d python train.py %s --save-dir %s  \
         --restore-file %s \
         --max-positions 512\
         --update-freq %d \

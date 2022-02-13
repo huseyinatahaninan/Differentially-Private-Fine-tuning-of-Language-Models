@@ -12,7 +12,7 @@ rule compile
 
 
 
-build /amltf3eeb8ccc608dde2881b0fc4b5f74237/dpfinetune_coderelease/bert_dpsgd/build/temp.linux-x86_64-3.6/fastbpe/fastBPE/fastBPE.o: compile /amltf3eeb8ccc608dde2881b0fc4b5f74237/dpfinetune_coderelease/bert_dpsgd/fastbpe/fastBPE/fastBPE.cpp
+build /home/t-yuda/Differentially-Private-Fine-tuning-of-Language-Models/Language-Understanding-RoBERTa/bert_dpsgd/build/temp.linux-x86_64-3.6/fastbpe/fastBPE/fastBPE.o: compile /home/t-yuda/Differentially-Private-Fine-tuning-of-Language-Models/Language-Understanding-RoBERTa/bert_dpsgd/fastbpe/fastBPE/fastBPE.cpp
 
 
 

@@ -63,7 +63,7 @@ class PHMLinear_inner(nn.Module):
     def __init__(self, ensemble, indim, outdim):
         super(PHMLinear_inner, self).__init__()
         tensor = torch.ones(())
-        self.weight = nn.Parameter(tensor.new_empty(size=(ensemble, indim, outdim), dtype=torch.half))
+        self.weight = nn.Parameter(tensor.new_empty(size=(ensemble, indim, outdim)))
         torch.nn.init.xavier_normal_(self.weight, gain=math.sqrt(2))
 
     def forward(self, x):

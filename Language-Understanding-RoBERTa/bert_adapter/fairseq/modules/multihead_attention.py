@@ -208,7 +208,8 @@ class MultiheadAttention(nn.Module):
 
         nn.init.xavier_normal_(self.proj_right.weight)
 
-        self.proj_right.weight.data = self.proj_right.weight.data.half()
+        if(self.args.fp16):
+            self.proj_right.weight.data = self.proj_right.weight.data.half()
 
     def reset_parameters(self):
         # Note: these initilaztion will be overrided in `init_bert_params`, if using BERT

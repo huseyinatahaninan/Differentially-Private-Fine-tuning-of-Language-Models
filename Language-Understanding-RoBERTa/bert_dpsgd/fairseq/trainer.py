@@ -346,8 +346,12 @@ class Trainer(object):
                         for i, p in enumerate(self.params):
                             flat_g = p.batch_grad.view(sample_size, -1)
                             norms += (torch.norm(flat_g, dim=1)).float()**2
-                        norms = torch.sqrt(norms).half()
-                        scale = self.args.clip * self.optimizer.scaler.loss_scale / norms
+                        if(not self.args.fp16):
+                            norms = torch.sqrt(norms)
+                            scale = self.args.clip / norms
+                        else:
+                            norms = torch.sqrt(norms).half()
+                            scale = self.args.clip * self.optimizer.scaler.loss_scale / norms
                         scale[scale>1] = 1
                         for m in self.model.modules(): # clip and assign gradient
                             if(hasattr(m, 'in_proj')):
@@ -414,8 +418,14 @@ class Trainer(object):
         if(self.args.sigma > 0):
             for i, p in enumerate(self.params):
                 p.grad /= batch_size
-                sigma = self.args.sigma * self.args.clip * self.optimizer.scaler.loss_scale
-                p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda().half()
+                
+                if(not self.args.fp16):
+                    sigma = self.args.sigma * self.args.clip
+                    p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda()
+                else:
+                    sigma = self.args.sigma * self.args.clip * self.optimizer.scaler.loss_scale
+                    p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda().half()
+
 
         
         if ooms > 0 and self._oom_batch is not None:

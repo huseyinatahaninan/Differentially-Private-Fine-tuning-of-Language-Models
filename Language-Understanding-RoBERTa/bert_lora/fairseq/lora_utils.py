@@ -50,7 +50,7 @@ class LoraLinear(nn.Module):
         self.batch_dim = batch_dim
 
         tensor = torch.ones(())
-        self.weight = nn.Parameter(tensor.new_empty(size=(outdim, indim), dtype=torch.half))
+        self.weight = nn.Parameter(tensor.new_empty(size=(outdim, indim)))
 
         self.register_forward_hook(linear_forward_hook)
         self.register_backward_hook(linear_backward_hook)    

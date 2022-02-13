@@ -335,7 +335,10 @@ class Trainer(object):
                         for i, p in enumerate(self.params):
                             flat_g = p.batch_grad.view(sample_size, -1)
                             norms += (torch.norm(flat_g, dim=1)).float()**2
-                        norms = torch.sqrt(norms).half()
+                        if(self.args.fp16):
+                            norms = torch.sqrt(norms).half()
+                        else:
+                            norms = torch.sqrt(norms)
                         scale = self.args.clip / norms
                         scale[scale>1] = 1
                         
@@ -396,7 +399,10 @@ class Trainer(object):
                 # Add noise to averaged individual gradients
                 p.grad /= batch_size
                 sigma = self.args.sigma * self.args.clip
-                p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda().half()
+                if(self.args.fp16):
+                    p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda().half()
+                else:
+                    p.grad += torch.normal(0, sigma/batch_size, size=p.grad.shape).cuda()
 
 
         if ooms > 0 and self._oom_batch is not None:

@@ -82,8 +82,9 @@ class TransformerSentenceEncoderLayer(nn.Module):
         nn.init.xavier_normal_(self.fc1_right.weight)
         nn.init.xavier_normal_(self.fc2_right.weight)
 
-        self.fc1_right.weight.data = self.fc1_right.weight.data.half()
-        self.fc2_right.weight.data = self.fc2_right.weight.data.half()
+        if(self.args.fp16):
+            self.fc1_right.weight.data = self.fc1_right.weight.data.half()
+            self.fc2_right.weight.data = self.fc2_right.weight.data.half()
 
     def forward(
         self,
