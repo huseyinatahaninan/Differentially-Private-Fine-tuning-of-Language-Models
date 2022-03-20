@@ -2,6 +2,12 @@
 
 This repo contains the code of ['Differentially Private Fine-tuning of Language Models'](https://arxiv.org/abs/2110.06500), which is published as a conference paper at ICLR 2022. Please find the instructions in the subfloders.
 
+# Contact
+
+Please feel free to raise any issues. The contacts of authors can be found in [here](https://arxiv.org/abs/2110.06500). Feel free to drop us an email if you have any questions.
+
+
+
 # Citation
 
 ```
