@@ -4,7 +4,7 @@ This repo contains the code of ['Differentially Private Fine-tuning of Language 
 
 # Contact
 
-Please feel free to raise any issues. The contacts of authors can be found in [here](https://arxiv.org/abs/2110.06500). Feel free to drop us an email if you have any questions.
+Please feel free to raise any issues. The contacts of authors can be found in [here](https://arxiv.org/abs/2110.06500). Feel free to drop us an email if you have any questions (yuda3@mail2.sysu.edu.cn for questions about language understanding).
 
 
 
